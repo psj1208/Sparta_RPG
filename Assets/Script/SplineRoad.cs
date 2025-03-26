@@ -19,6 +19,8 @@ public class SplineRoad : MonoBehaviour
     {
         m_splineSampler = GetComponent<SplineSampler>();
         m_meshFilter = GetComponent<MeshFilter>();
+        GetVerts();
+        BuildMesh();
     }
 
     // Update is called once per frame
@@ -55,17 +57,17 @@ public class SplineRoad : MonoBehaviour
         for (int i = 0; i < length; i++)
         {
 
-            // ÇöÀç ÀÎµ¦½º i¿Í ´ÙÀ½ ÀÎµ¦½º (¼øÈ¯ÇÏµµ·Ï)
+            // í˜„ìž¬ ì¸ë±ìŠ¤ iì™€ ë‹¤ìŒ ì¸ë±ìŠ¤ (ìˆœí™˜í•˜ë„ë¡)
             int nextIndex = (i + 1) % length;
 
-            // ÇöÀç »ç°¢ÇüÀ» ±¸¼ºÇÏ´Â ³× °³ÀÇ Á¤Á¡
+            // í˜„ìž¬ ì‚¬ê°í˜•ì„ êµ¬ì„±í•˜ëŠ” ë„¤ ê°œì˜ ì •ì 
             Vector3 p1 = transform.InverseTransformPoint(m_vertsP1[i]);
             Vector3 p2 = transform.InverseTransformPoint(m_vertsP2[i]);
             Vector3 p3 = transform.InverseTransformPoint(m_vertsP1[nextIndex]);
             Vector3 p4 = transform.InverseTransformPoint(m_vertsP2[nextIndex]);
 
-            // Á¤Á¡ Ãß°¡
-            int offset = verts.Count; // ÇöÀç Ãß°¡µÈ Á¤Á¡ °³¼ö ±â¹ÝÀ¸·Î ¿ÀÇÁ¼Â °è»ê
+            // ì •ì  ì¶”ê°€
+            int offset = verts.Count; // í˜„ìž¬ ì¶”ê°€ëœ ì •ì  ê°œìˆ˜ ê¸°ë°˜ìœ¼ë¡œ ì˜¤í”„ì…‹ ê³„ì‚°
 
             verts.Add(p1);
             verts.Add(p2);
