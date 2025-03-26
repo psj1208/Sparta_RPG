@@ -20,6 +20,15 @@ public class ItemInfo : ScriptableObject
 
     public void Use()
     {
+        switch(type)
+        {
+            case StatType.Health:
+                break;
+            case StatType.Speed:
+                break;
+            case StatType.Atk:
+                break;
+        }
         GameManager.Instance.player.statHandler.ModifyStat(type, amount, isPermanent, duration);
     }
 }

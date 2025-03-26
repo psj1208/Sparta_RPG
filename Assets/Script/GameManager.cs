@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
     {
         curWave = 0;
         //게임 완료
+        SceneManager.LoadScene("MainScene");
     }
 
     private StageInfo GetStageInfo(int stageKey)
